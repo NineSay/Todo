@@ -29,6 +29,38 @@ export class TodoPage {
     this.todos = [];
     this.done = [];
     this.dones = [];
+
+    this.storage.get('Todo').then((value) => {
+      if (value){
+        this.todo = JSON.parse(value);
+        for (let i = 0; i < this.todo.length; i++) {
+          let todoID = this.todo[i]
+          if (todoID) {
+            this.storage.get(todoID).then((value) => {
+              console.log(value)
+              let todo = JSON.parse(value);
+              this.todos.push(todo);
+            });
+          }
+        }
+      }
+    });
+    this.storage.get('Done').then((value) => {
+      if (value){
+        this.done = JSON.parse(value);
+        for (let i = 0; i < this.done.length; i++) {
+          let doneID = this.done[i]
+          if (doneID) {
+            this.storage.get(doneID).then((value) => {
+              console.log(value)
+              let done = JSON.parse(value);
+              this.dones.push(done);
+            });
+          }
+        }
+      }
+    });
+
   }
 
   ionViewDidLoad() {
@@ -53,6 +85,17 @@ export class TodoPage {
 
   createEvent(){
     let popover = this.popoverCtrl.create("NewPage");
+    popover.onDidDismiss(data => {
+      if (data) {
+        console.log(data)
+        this.todo.push(data.id)
+        this.todos.push(data)
+        let jsonTodo =  JSON.stringify(this.todo);
+        this.storage.set('Todo', jsonTodo);
+        let jsonData =  JSON.stringify(data);
+        this.storage.set(data.id, jsonData);
+      }
+    });
     popover.present();
   }
 
