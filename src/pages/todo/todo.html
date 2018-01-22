@@ -18,6 +18,11 @@
 <ion-content>
   <ion-item>
     <p>Todo List</p>
+    <p item-right color="leaf" (click)="createEvent()">
+      <ion-icon small name="md-add-circle" color="leaf">
+      </ion-icon>
+      Add a new todo!
+    </p>
   </ion-item>
   <ion-list>
     <ion-item-sliding *ngFor="let item of todos; let i = index;">

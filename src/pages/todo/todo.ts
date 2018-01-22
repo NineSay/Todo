@@ -46,9 +46,13 @@ export class TodoPage {
   doneEvent(data){
     
   }
-  
+
   openEvent(data){
 
+  }
+
+  createEvent(){
+    
   }
 
 }
