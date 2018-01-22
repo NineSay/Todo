@@ -15,7 +15,7 @@ import { ToolService } from '../../app/tool.service';
   templateUrl: 'new.html',
 })
 export class NewPage {
-  
+
   name: any;
   color: any;
   select: any;
@@ -40,7 +40,7 @@ export class NewPage {
   }
 
   operateEvent(operate) {
-    if(operate === 1){
+    if(operate === 1 && this.name != ""){
       let data = {}
       data["id"] = this.id;
       data["name"] = this.name;

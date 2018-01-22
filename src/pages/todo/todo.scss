@@ -1,3 +1,57 @@
 page-todo {
+  .title-hr{
+    margin-left: 10px;
+    margin-right: 10px;
+    border-top: 1px solid #8c8b8b;
+  }
 
+  .box-padding {
+    padding: 0 10px 0 10px;
+  }
+
+  .item-md.item-block .item-inner {
+    border: 0;
+  }
+
+  .tip-title {
+    font-size: 1.8rem;
+    color: #000;
+  }
+  .tip-subtitle {
+    font-size: 1.4rem;
+    color: #666;
+  }
+  .searchbar-md {
+    padding: 8px 10px;
+  }
+  .leaf-item {
+    .list-md {
+      margin: 0;
+    }
+    .item-md {
+      padding: 0;
+      .item-inner {
+        padding: 0;
+      }
+    }
+    .item-md h3, .item-md h4, .item-md h5, .item-md h6 {
+      font-size: 1.6rem;
+    }
+    .item-md p{
+      font-size: 1.2rem;
+    }
+    ion-item-sliding {
+      background-color: #fff;
+      margin-bottom: 10px;
+    }
+    .input-wrapper {
+      .label-md {
+        margin: 0;
+      }
+    }
+
+    .label-md {
+      padding: 0;
+    }
+  }
 }

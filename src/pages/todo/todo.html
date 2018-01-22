@@ -16,47 +16,56 @@
 
 
 <ion-content>
-  <ion-item>
-    <p>Todo List</p>
-    <p item-right color="leaf" (click)="createEvent()">
-      <ion-icon small name="md-add-circle" color="leaf">
-      </ion-icon>
-      Add a new todo!
-    </p>
-  </ion-item>
-  <ion-list>
-    <ion-item-sliding *ngFor="let item of todos; let i = index;">
-      <ion-item (click)="openEvent(item)">
-        <div>
-          <h4>{{item.name}}</h4>
-        </div>
+    <ion-item>
+        <p class="tip-title">ToDo List</p>
+        <p item-right class="tip-subtitle" color="leaf" (click)="createEvent()">
+          <ion-icon small name="md-add-circle" color="leaf">
+          </ion-icon>
+          Add a new todo!
+        </p>
       </ion-item>
-      <ion-item-options side="left">
-        <button ion-button (click)="deleteEvent(item, index)" color="fire">Delete</button>
-      </ion-item-options>
-
-      <ion-item-options side="right">
-        <button ion-button (click)="doneEvent(item, index)" color="ice">Done</button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
-  <ion-item>
-    <p>Done List</p>
-  </ion-item>
-  <ion-list>
-    <ion-item-sliding *ngFor="let item of dones; let i = index;">
-      <ion-item (click)="openEvent(item)">
-        <div>
-          <h4>{{item.name}}</h4>
-        </div>
+    
+      <div class="box-padding">
+        <ion-list class="leaf-item">
+          <ion-item-sliding *ngFor="let item of todos; let i = index;">
+            <ion-item (click)="openEvent(item)">
+              <div class="callout background-default" 
+                [class.border-danger]="item.color === 'Fire'" 
+                [class.border-warning]="item.color === 'Sun'"
+                [class.border-success]="item.color === 'Leaf'" 
+                [class.border-info]="item.color === 'Ice'">
+                <h4>{{item.name}}</h4>
+              </div>
+            </ion-item>
+            <ion-item-options side="left">
+              <button ion-button (click)="deleteEvent(item, index)" color="fire">Delete</button>
+            </ion-item-options>
+    
+            <ion-item-options side="right">
+              <button ion-button (click)="doneEvent(item, index)" color="ice">Done</button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </div>
+      <ion-item>
+        <p class="tip-title">Done List</p>
       </ion-item>
-      <ion-item-options side="left">
-        <button ion-button (click)="deleteEvent(item, index)" color="fire">Delete</button>
-      </ion-item-options>
-
-      <ion-item-options side="right">
-        <button ion-button (click)="todoEvent(item, index)" color="ice">Todo</button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
+      <div class="box-padding">
+        <ion-list class="leaf-item">
+          <ion-item-sliding *ngFor="let item of dones; let i = index;">
+            <ion-item (click)="openEvent(item)">
+              <div class="callout background-default">
+                <h4>{{item.name}}</h4>
+              </div>
+            </ion-item>
+            <ion-item-options side="left">
+              <button ion-button (click)="deleteEvent(item, index)" color="fire">Delete</button>
+            </ion-item-options>
+    
+            <ion-item-options side="right">
+              <button ion-button (click)="todoEvent(item, index)" color="ice">Todo</button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </div>
 </ion-content>
