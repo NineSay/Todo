@@ -52,7 +52,8 @@ export class TodoPage {
   }
 
   createEvent(){
-    
+    let popover = this.popoverCtrl.create("NewPage");
+    popover.present();
   }
 
 }
