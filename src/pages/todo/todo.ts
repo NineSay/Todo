@@ -91,12 +91,46 @@ export class TodoPage {
     this.storage.set('Todo', jsonDone);
   }
 
-  todoEvent(data){
-    
+  todoEvent(data) {
+    // 删除树
+    this.storage.remove(data.id);
+    // 删除树的引用
+    for (let i = 0; i < this.done.length; i++){
+      if (this.done[i] == data.id){
+        this.done.splice(i,1);
+        this.dones.splice(i,1)
+      }
+    }
+    let jsonDone =  JSON.stringify(this.done);
+    this.storage.set('Done', jsonDone);
+
+    this.todo.push(data.id)
+    this.todos.push(data)
+    let jsonTodo =  JSON.stringify(this.todo);
+    this.storage.set('Todo', jsonTodo);
+    let jsonData =  JSON.stringify(data);
+    this.storage.set(data.id, jsonData);
   }
 
-  doneEvent(data){
-    
+  doneEvent(data) {
+    // 删除树
+    this.storage.remove(data.id);
+    // 删除树的引用
+    for (let i = 0; i < this.todo.length; i++){
+      if (this.todo[i] == data.id){
+        this.todo.splice(i,1);
+        this.todos.splice(i,1)
+      }
+    }
+    let jsonTodo =  JSON.stringify(this.todo);
+    this.storage.set('Todo', jsonTodo);
+
+    this.done.push(data.id)
+    this.dones.push(data)
+    let jsonDone =  JSON.stringify(this.done);
+    this.storage.set('Done', jsonDone);
+    let jsonData =  JSON.stringify(data);
+    this.storage.set(data.id, jsonData);
   }
 
   openEvent(data){
