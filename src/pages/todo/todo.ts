@@ -14,12 +14,34 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'todo.html',
 })
 export class TodoPage {
+  
+  todo: any;
+  todos: any;
+  done: any;
+  dones: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.todo = [];
+    this.todos = [];
+    this.done = [];
+    this.dones = [];
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TodoPage');
+  }
+
+  deleteEvent(data){
+    
+  }
+  todoEvent(data){
+    
+  }
+  doneEvent(data){
+    
+  }
+  openEvent(data){
+
   }
 
 }

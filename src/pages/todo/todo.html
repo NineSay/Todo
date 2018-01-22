@@ -15,12 +15,43 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <ion-item>
     <p>Todo List</p>
   </ion-item>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of todos; let i = index;">
+      <ion-item (click)="openEvent(item)">
+        <div>
+          <h4>{{item.name}}</h4>
+        </div>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button (click)="deleteEvent(item, index)" color="fire">Delete</button>
+      </ion-item-options>
 
+      <ion-item-options side="right">
+        <button ion-button (click)="doneEvent(item, index)" color="ice">Done</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
   <ion-item>
     <p>Done List</p>
   </ion-item>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of dones; let i = index;">
+      <ion-item (click)="openEvent(item)">
+        <div>
+          <h4>{{item.name}}</h4>
+        </div>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button (click)="deleteEvent(item, index)" color="fire">Delete</button>
+      </ion-item-options>
+
+      <ion-item-options side="right">
+        <button ion-button (click)="todoEvent(item, index)" color="ice">Todo</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
