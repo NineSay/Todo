@@ -133,8 +133,23 @@ export class TodoPage {
     this.storage.set(data.id, jsonData);
   }
 
-  openEvent(data){
-
+  openEvent(item){
+    let popover = this.popoverCtrl.create("EditPage", item);
+    popover.onDidDismiss(data => {
+      if (data) {
+        console.log(data)
+        for (let i = 0; i < this.todo.length; i++){
+          if (this.todo[i] == data.id){
+            this.todos.splice(i,1,data);
+          }
+        }
+        let jsonTodo =  JSON.stringify(this.todo);
+        this.storage.set('Todo', jsonTodo);
+        let jsonData =  JSON.stringify(data);
+        this.storage.set(data.id, jsonData);
+      }
+    });
+    popover.present();
   }
 
   createEvent(){

@@ -1,20 +1,34 @@
-<!--
-  Generated template for the EditPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title text-center>
-      Edit
-    </ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
+<ion-content>
+  <div class="menus-padding">
+    <ion-grid>
+      <h2>Edit Task!</h2>
+      <input class="contact-input" [(ngModel)]="name" placeholder="What to do?">
+      <ion-row>
+        <ion-col width-25>
+          <button ion-button block color="fire" (click)="selectEvent(1, 'Fire')">
+            <ion-icon *ngIf="select === 1" name="md-checkmark"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col width-25>
+          <button ion-button block color="sun" (click)="selectEvent(2, 'Sun')">
+            <ion-icon *ngIf="select === 2" name="md-checkmark"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col width-25>
+          <button ion-button block color="ice" (click)="selectEvent(3, 'Ice')">
+            <ion-icon *ngIf="select === 3" name="md-checkmark"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col width-25>
+          <button ion-button block color="leaf" (click)="selectEvent(4, 'Leaf')">
+            <ion-icon *ngIf="select === 4" name="md-checkmark"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-item>
+        <button ion-button item-right clear (click)="operateEvent(0)">Cancel</button>
+        <button ion-button item-right clear (click)="operateEvent(1)">OK</button>
+      </ion-item>
+    </ion-grid>
+  </div>
 </ion-content>

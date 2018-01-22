@@ -1,3 +1,21 @@
 page-edit {
+  .menus-padding {
+    padding: 10px;
+  }
+  .contact-input {
+    text-transform: capitalize;
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    min-width: 100%;
+    display: block;
+    box-sizing: border-box;
+    border: solid 1px #bababa;
+  }
 
+  .item-md.item-block .item-inner {
+    padding-right: 8px;
+    border: 0;
+  } 
 }
