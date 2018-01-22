@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ToolService } from '../../app/tool.service';
 
 /**
  * Generated class for the NewPage page.
@@ -27,6 +28,6 @@ export class NewPage {
   }
 
   operateEvent() {
-    
+
   }
 }
