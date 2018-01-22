@@ -68,7 +68,27 @@ export class TodoPage {
   }
 
   deleteEvent(data){
+    // 删除树
+    this.storage.remove(data.id);
+    // 删除树的引用
+    for (let i = 0; i < this.todo.length; i++){
+      if (this.todo[i] == data.id){
+        this.todo.splice(i,1);
+        this.todos.splice(i, 1)
+      }
+    }
+    // 删除树的引用
+    for (let i = 0; i < this.done.length; i++){
+      if (this.done[i] == data.id){
+        this.done.splice(i,1);
+        this.dones.splice(i, 1)
+      }
+    }
     
+    let jsonTodo =  JSON.stringify(this.todo);
+    this.storage.set('Todo', jsonTodo);
+    let jsonDone =  JSON.stringify(this.done);
+    this.storage.set('Todo', jsonDone);
   }
 
   todoEvent(data){
